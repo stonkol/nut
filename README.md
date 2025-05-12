@@ -1,4 +1,4 @@
-# NUTS
+# NUT
 
 nutri calculator and dictionary for the terminal.  
 A interactive and colorful cli in application written in Go.
