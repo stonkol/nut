@@ -6,7 +6,8 @@ Nut uses [bubbletea](https://github.com/charmbracelet/bubbletea) for interactivi
 
 ## TODO
 
-- [] based on [bubbletea-teplate](https://github.com/charmbracelet/bubbletea-app-template)
+- [ ] based on [bubbletea-teplate](https://github.com/charmbracelet/bubbletea-app-template)
+- [ ] use [bubbles](https://github.com/charmbracelet/bubbles)
 
 ## USAGE
 
@@ -14,40 +15,82 @@ Nut uses [bubbletea](https://github.com/charmbracelet/bubbletea) for interactivi
 nuts bun
 ```
 
-## Ways of input
+## Add
+
+There are ways of add food
+1. by 
+
 
 ```sh
-nut 15          # if a number, it adds proteins, += 15 protein
+nut 15p         # if a number, it adds proteins, += 15 protein
+nut 10p 0.1va   # if a number, it adds proteins, += 15 protein +=vitamin_a
 nut fish        # by default is 100g
-nut fish        # by default is 330ml
+nut oatmilk     # drinks by default are 330ml
 nut 2x egg      # 2*[default_egg_weight]
 nut 2x fish     # 2*100 (there is no default weigth for a *fish* so it defaults to 100g)
-nut 350 fish    # += 250g of fish
+nut 350 fish    # += 350g of fish
 ```
 
-## LIST PRODUCTS
+## Remove
 
-A colorful and interactive way of showing products and their percentage of protein
+### Selecting method
+
+After enter `nut rm`, and it will show you the food added today
+
 ```sh
-> nut --list
+> nut rm
+egg
+beef
+25 protein drink
 
-MEAT      VEGGIES     DRINKS      OTHERS
-beef      veg1        ...         eggs
-pork      veg2        ...         ...
-lamb      veg2        ...         ...
-...       veg2        ...         ...
 ```
 
-Maybe a way to display, with a sidebar tot list of products
+## Today
+
+List the food ate with today, `-t`, `--today`, list is like it is recepit
+Also there is yesterday, `-y`, `--yesterday`
 
 ```sh
+> nut today
 
-===============[ list [L] ]============[ find [F] ]==============
+item     protein  fat   sugars  salt  vitamin   minerals 
+[item1]  26%       4%     4%      3%    Z, R, O   Fe
+item2    26%       3%    14%      3%    Z, R, O   Fe
+item3    26%      10%     0%       -    Z, R, O   Fe
+item4     1%       1%     4%      3%    Z, R, O   Fe
+...
+==================== total =============================
+         22%                         
+         30g      21g  30mg    110mg Z,R,O
+---------------------------------------------------------
+  select [↑ ↓]    save [S]     print [P]      quit [Q] 
+```
 
-               item        protein   fat     vitamin   minerals
-[    MEAT ]    chicken     29%       x%      X, Y
-    DAIRY      pork        25%       x%      X, Y
-   DRINKS      beef        26%       x%      Z, R, O
+## Print 
+
+
+
+## Config
+
+Let the user configure `-c` or `--config`
+
+## NUTRITION ENCYCLOPEDIA
+
+A colorful and interactive way of showing products and their percentage of nutrients
+
+### List
+
+Display with a sidebar a list of some common products. Accessed by `nut`, `nut -l` or `nut --list`
+
+```sh
+> nut -l
+
+==========( list [L] )======( find [F] )======( ref [R] )=========
+
+               item        protein   fat  sugars  salt  vitamin   minerals 
+[    MEAT ]    chicken     29%       x%                  X, Y
+    DAIRY      pork        25%       x%                  X, Y
+   DRINKS      beef        26%       x%                  Z, R, O
     GRAIN      egg         13%       x%      
   PROCESS      tuna        25%       x%
      NUTS      salmon      22%       x%
@@ -55,6 +98,13 @@ Maybe a way to display, with a sidebar tot list of products
    OTHERS
 
 -----------------------------------------------------------------
-           select [ ↑ ↓ ]           [ quit [Q] ]
-
+            select [↑ ↓]             quit [Q] 
 ```
+
+### find
+
+Use some API like maybe [openfoodfacts](https://github.com/openfoodfacts/openfoodfacts-go) to access to a bigger data for the nutrition of specific products.
+
+### references
+
+`-r` `--ref` show the sources of the nutrition and their links.
