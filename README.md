@@ -48,31 +48,45 @@ beef
 ## Today
 
 List the food ate with today, `-t`, `--today`, list is like it is recepit
-Also there is yesterday, `-y`, `--yesterday`
+Also there is yesterday, `-y`, `--yesterday`.
+
+The numbers will be color coded.  
+For example If it is a *good* vitamin or protein:
+
+- >100% will be shown in green
+- 99~80% will be shown in white
+- 79~60% will be shown in yellow
+- 59~40% will be shown in orange
+- 39~20% will be shown in red
+- <20% will be shown in purple
 
 ```sh
 > nut today
 
-item     protein  fat   sugars  salt  vitamin   minerals 
-[item1]  26%       4%     4%      3%    Z, R, O   Fe
-item2    26%       3%    14%      3%    Z, R, O   Fe
-item3    26%      10%     0%       -    Z, R, O   Fe
-item4     1%       1%     4%      3%    Z, R, O   Fe
+item     protein  fat   sugars  salt    vitamin   minerals 
+[item1]  26%       4%     4%      3%    A         Fe
+item2    26%       3%    14%      3%    B12, B6   Fe
+item3    26%      10%     0%       -    A, C      Fe
+item4     1%       1%     4%      3%    -         Fe
 ...
 ==================== total =============================
-         22%                         
-         30g      21g  30mg    110mg Z,R,O
+DRI      22%      22%     2%    112%    32%       40%                  
+         30g      21g   30mg    110mg Z,R,O
 ---------------------------------------------------------
-  select [↑ ↓]    save [S]     print [P]      quit [Q] 
+   mode [m]   save [S]     print [P]      quit [Q]
 ```
+mode alternate between weight and dri
 
 ## Print 
 
-
+Print it on your printer, wait, is this even possible?
 
 ## Config
 
 Let the user configure `-c` or `--config`
+
+Set your weight, height.
+Which nutrients you want to be shown in the list
 
 ## NUTRITION ENCYCLOPEDIA
 
